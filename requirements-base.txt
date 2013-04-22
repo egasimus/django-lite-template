@@ -2,7 +2,6 @@
 Pillow==1.7.8
 psycopg2==2.4.6
 South==0.7.6
-boto==2.8.0
 pytz==2012j
 Werkzeug==0.8.3
 Fabric==1.5.3
@@ -22,5 +21,3 @@ django-postgrespool==0.2.4
 djangorestframework==2.1.17
 django-storages==1.1.6
 django-user-accounts==1.0b8
-django-forms-bootstrap==2.0.3.post1
-pinax-theme-bootstrap-account==1.0b2
