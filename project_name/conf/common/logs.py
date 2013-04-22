@@ -14,14 +14,18 @@ LOGGING = {
     "disable_existing_loggers": False,
     "formatters": {
         "standard": {
-            "format": "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            "format": "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] "
+                      "%(message)s",
             "datefmt": "%d/%b/%Y %H:%M:%S"
         },
         "verbose": {
-            "format": "%(levelname)s %(asctime)s %(module)s [%(name)s:%(lineno)s] %(process)d %(thread)d %(message)s"
+            "format": "%(levelname)s %(asctime)s %(module)s "
+                      "[%(name)s:%(lineno)s] %(process)d %(thread)d "
+                      "%(message)s"
         },
         "console": {
-            "format": "[%(asctime)s] %(levelname)5s [%(name)s:%(lineno)s] %(message)s",
+            "format": "[%(asctime)s] %(levelname)5s [%(name)s:%(lineno)s] "
+                      "%(message)s",
             "datefmt": "%H:%M:%S"
         }
     },

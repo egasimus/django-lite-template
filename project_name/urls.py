@@ -11,14 +11,14 @@ from sitemaps import sitemaps
 
 admin.autodiscover()
 
-urlpatterns = patterns("",
-    url(r"^$",          include("home.urls")),
-    url(r"^about/",     include("about.urls", namespace="about")),
-    url(r"^account/", include("account.urls")),
-    url(r"^api/", include("api.urls")),
-    url(r"^api-auth/", include("rest_framework.urls", namespace="rest_framework")),
-    url(r"^sitemap\.xml$", "django.contrib.sitemaps.views.sitemap", kwargs={"sitemaps": sitemaps}),
-    url(r"^admin/", include(admin.site.urls)),
+urlpatterns = patterns(
+    "",
+    url(r"^sitemap\.xml$",
+        "django.contrib.sitemaps.views.sitemap",
+        kwargs={"sitemaps": sitemaps}),
+
+    url(r"^admin/",
+        include(admin.site.urls)),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from .base import *
 
+"""
 # Settings read from Heroku env (see https://github.com/nigma/django-herokuify)
 import herokuify
 from herokuify.common import *
@@ -36,8 +37,10 @@ DEFAULT_FILE_STORAGE = "herokuify.storage.S3MediaStorage"
 STATICFILES_STORAGE = "herokuify.storage.CachedS3StaticStorage"
 COMPRESS_STORAGE = "herokuify.storage.CachedS3StaticStorage"
 
-MEDIA_URL = "https://{0}.s3.amazonaws.com/media/".format(AWS_STORAGE_BUCKET_NAME)
-STATIC_URL = "https://{0}.s3.amazonaws.com/static/".format(AWS_STORAGE_BUCKET_NAME)
+MEDIA_URL = "https://{0}.s3.amazonaws.com/media/" . \
+            format(AWS_STORAGE_BUCKET_NAME)
+STATIC_URL = "https://{0}.s3.amazonaws.com/static/" . \
+             format(AWS_STORAGE_BUCKET_NAME)
 
 # Compress assets during deployment
 COMPRESS_OFFLINE = True
@@ -57,3 +60,4 @@ DATABASE_POOL_ARGS = {
 SOUTH_DATABASE_ADAPTERS = {
     'default': 'south.db.postgresql_psycopg2'
 }
+"""

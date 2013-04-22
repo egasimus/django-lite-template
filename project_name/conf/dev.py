@@ -25,28 +25,13 @@ MEDIA_ROOT = rel("..", "media").replace("\\", "/")
 
 # DATABASE, CACHE AND EMAIL BACKENDS
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "{{ project_name }}",
-        "USER": "{{ project_name }}",
-        "PASSWORD": "pass",
-        "OPTIONS": {
-            "autocommit": True,
-        }
-    }
-}
+DATABASES = {'default': {'ENGINE': 'django.db.backends.sqlite3',
+                         'NAME': os.path.join(PROJECT_ROOT, 'db.sqlite')}}
 
 CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.dummy.DummyCache"
-    },
-    "locmem": {
-        "BACKEND": "django.core.cache.backends.locmem.LocMemCache"
-    },
-    "dummy": {
-        "BACKEND": "django.core.cache.backends.dummy.DummyCache",
-    }
+    "default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"},
+    "locmem": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache"},
+    "dummy": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}
 }
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
@@ -56,8 +41,8 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # with error: `InternalError: current transaction is aborted, commands ignored
 # until end of transaction blocks`
 
-MIDDLEWARE_CLASSES += ["debug_toolbar.middleware.DebugToolbarMiddleware",]
-INSTALLED_APPS += ["debug_toolbar",]
+MIDDLEWARE_CLASSES += ["debug_toolbar.middleware.DebugToolbarMiddleware", ]
+INSTALLED_APPS += ["debug_toolbar", ]
 
 DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": False,
@@ -66,17 +51,17 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 
 DEBUG_TOOLBAR_PANELS = [
-    #"debug_toolbar.panels.version.VersionDebugPanel",
+    "debug_toolbar.panels.version.VersionDebugPanel",
     "debug_toolbar.panels.timer.TimerDebugPanel",
     "debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel",
     "debug_toolbar.panels.headers.HeaderDebugPanel",
     "debug_toolbar.panels.request_vars.RequestVarsDebugPanel",
-    #"debug_toolbar.panels.template.TemplateDebugPanel",
+    "debug_toolbar.panels.template.TemplateDebugPanel",
     "debug_toolbar.panels.sql.SQLDebugPanel",
     "debug_toolbar.panels.signals.SignalDebugPanel",
     "debug_toolbar.panels.logger.LoggingPanel",
     "debug_toolbar.panels.cache.CacheDebugPanel",
-    #"debug_toolbar.panels.profiling.ProfilingDebugPanel"
+    "debug_toolbar.panels.profiling.ProfilingDebugPanel"
 ]
 
 COMPRESS_CSS_FILTERS = [

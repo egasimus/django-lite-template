@@ -61,8 +61,12 @@ MIDDLEWARE_CLASSES = [
     "django.contrib.messages.middleware.MessageMiddleware",
     #"django.middleware.http.ConditionalGetMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django.middleware.locale.LocaleMiddleware", # Cookie-based, for anonymous users
-    "account.middleware.LocaleMiddleware", # Account-based, for registered users
+
+    # Cookie-based, for anonymous users
+    "django.middleware.locale.LocaleMiddleware",
+    # Account-based, for registered users
+    "account.middleware.LocaleMiddleware",
+
     "account.middleware.TimezoneMiddleware",
 ]
 
@@ -80,25 +84,18 @@ INSTALLED_APPS = [
 
     # Pinax user accounts apps
     "account",
-    "pinax_theme_bootstrap_account",
-    "django_forms_bootstrap", # TODO: bootstrap/field.html template collides with crispy-forms
 
     # Top utilities for assets management, db migrations, api and more
     "compressor",
     "crispy_forms",
     "django_extensions",
     "infinite_pagination",
-    #"imagekit",
+    "imagekit",
     "rest_framework",
     "south",
     "storages",
 
     # Project apps
-    "about",
-    "api",
-    "core",
-    "home",
-    "util",
 ]
 
 WSGI_APPLICATION = "wsgi.application"
